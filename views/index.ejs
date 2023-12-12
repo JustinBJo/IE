@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Leave a comment</title>
+    <link rel="stylesheet" type="text/css" href='../stylesheets/style.css'>
+  </head>
+  <body>
+    <div class="container">
+
+      <% if (action == 'comment') { %>
+      <style>
+        body {
+          background-image: url('../images/background_p2.gif');
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      </style>
+      <div class="container">
+        <div class="title-box">
+          <h1><%= title %></h1>
+        </div>
+        <form method="POST" action="/comment" class="comment-form">
+          <div class="comment-textarea-container">
+            <textarea name="comment" id="comment" class="comment-textarea" placeholder="Your comment..."></textarea>
+            <div id="character-counter">0/500</div>
+          </div>
+          <div class="comment-button-row">
+            <a href="/" class="go-back-button">Go back</a>
+            <input type="submit" name="submit_button" class="submit-button" value="Submit" />
+          </div>
+        </form>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        var commentTextarea = document.getElementById("comment");
+        var counter = document.getElementById("character-counter");
+
+        commentTextarea
+        .addEventListener("input", function() {
+          var currentLength = commentTextarea.value.length;
+          var maxLength = 500;
+          counter.textContent = currentLength + "/" + maxLength;
+          if (currentLength > maxLength) {
+            counter.style.color = "red";
+          } else {
+            counter.style.color = "grey";
+          }
+        });
+      });
+      </script>
+
+      <% } else if (action == 'thanks') { %>
+      <style>
+        body {
+          background-image: url('../images/background_p1.gif');
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      </style>
+      <div class="title-box">
+        <h1>Thanks for sharing your comment!</h1>
+        <h4>Take the leaf and see what other people shared</h4>
+        <p>You will be redirected to the main page automatically</p>
+      </div>
+      <script>
+        setTimeout(function() {
+            window.location.href = '/';
+        }, 10000);
+      </script>
+
+      <% } else { %>
+      <style>
+        body {
+          background-image: url('../images/background_p1.gif');
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      </style>
+      <div class="title-box">
+        <h1><%= title %></h1>
+      </div>
+      <div class="button-container">
+        <a href="/comment" class="button">Leave a comment</a>
+      </div>
+  
+      <% } %>
+  </body>
+</html>

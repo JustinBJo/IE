@@ -1,0 +1,174 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  margin: 0;
+}
+
+.container {
+  max-width: 500px;
+}
+
+.title-box {
+  background-color: white;
+  padding: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.comment-box {
+  background-color: white;
+  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  min-width: 400px;
+  max-width: 400px;
+  width: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 40px;
+  font-style: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+h3 {
+  margin: 0;
+  font-size: 30px;
+  font-style: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-align: left;
+  line-height: 1.5;
+}
+
+p {
+  margin-bottom: 0;
+  font-size: 20px;
+  font-style: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+a.button {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+a.button:hover {
+  background-color: #141414;
+  color: white;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-form {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+.comment-textarea-container {
+  position: relative;
+  width: 100%;
+}
+
+.comment-textarea {
+  width: 100%;
+  padding: 20px;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  height: 300px;
+  vertical-align: top;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1.5;
+  resize: none;
+}
+
+#character-counter {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: grey;
+}
+
+
+.comment-button-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submit-button {
+  width: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  background-color: #141414;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.go-back-button {
+  width: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.go-back-button:hover {
+  background-color: #141414;
+  color: white;
+}
