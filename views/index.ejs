@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -23,16 +22,18 @@
         <div class="title-box">
           <h1><%= title %></h1>
         </div>
-        <form method="POST" action="/comment" class="comment-form">
-          <div class="comment-textarea-container">
-            <textarea name="comment" id="comment" class="comment-textarea" placeholder="Your comment..."></textarea>
-            <div id="character-counter">0/500</div>
-          </div>
-          <div class="comment-button-row">
-            <a href="/" class="go-back-button">Go back</a>
-            <input type="submit" name="submit_button" class="submit-button" value="Submit" />
-          </div>
-        </form>
+        <div class="comment">
+          <form method="POST" action="/comment" class="comment-form">
+            <div class="comment-textarea-container">
+              <textarea name="comment" id="comment" class="comment-textarea" placeholder="Your comment..."></textarea>
+              <div id="character-counter">0/500</div>
+            </div>
+            <div class="comment-buttons">
+              <a href="/" class="go-back-button">Go back</a>
+              <input type="submit" name="submit_button" class="submit-button" value="Enter" />
+            </div>
+          </form>
+        </div>
       </div>
       <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -73,10 +74,9 @@
         }
       </style>
       <div class="title-box">
-        <h1>Thank you for</h1>
-        <h1>sharing your comment!</h1>
+        <h2>Thank you for<br>sharing your comment!</h2>
         <p>Take the leaf and see what other people shared</p>
-        <h4>You will be redirected to the main page automatically</h4>
+        <h4> <br>You will be redirected to the main page automatically</h4>
       </div>
       <script>
         setTimeout(function() {
@@ -91,13 +91,19 @@
           background-size: cover;
           background-repeat: no-repeat;
         }
+        .title-box {
+          padding-bottom: 20px;
+        }
       </style>
       <div class="title-box">
         <h1><%= title %></h1>
+        <div class="press-enter">
+          <a>Press Enter to leave a comment</a>
+        </div>
       </div>
-      <div class="button-container">
-        <a href="/comment" class="button">Press Submit to leave a comment</a>
-      </div>
+      <!-- <div class="button-container">
+        <a href="/comment" class="button">Press Enter</a>
+      </div> -->
       <script>
         document.addEventListener("DOMContentLoaded", function() {
           document.addEventListener("keydown", function(event) {
