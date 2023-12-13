@@ -36,21 +36,32 @@
       </div>
       <script>
         document.addEventListener("DOMContentLoaded", function() {
-        var commentTextarea = document.getElementById("comment");
-        var counter = document.getElementById("character-counter");
+          var commentTextarea = document.getElementById("comment");
+          var counter = document.getElementById("character-counter");
 
-        commentTextarea
-        .addEventListener("input", function() {
-          var currentLength = commentTextarea.value.length;
-          var maxLength = 500;
-          counter.textContent = currentLength + "/" + maxLength;
-          if (currentLength > maxLength) {
-            counter.style.color = "red";
-          } else {
-            counter.style.color = "grey";
-          }
+          commentTextarea.addEventListener("input", function() {
+            var currentLength = commentTextarea.value.length;
+            var maxLength = 500;
+            counter.textContent = currentLength + "/" + maxLength;
+            if (currentLength > maxLength) {
+              counter.style.color = "red";
+            } else {
+              counter.style.color = "grey";
+            }
+          });
+
+          commentTextarea.focus();
         });
-      });
+
+        document.addEventListener("DOMContentLoaded", function() {
+          document.addEventListener("keydown", function(event) {
+            if (event.code === "Numpad2") {
+              document.querySelector('.comment-form input[type="submit"]').click();
+            } else if (event.code === "Numpad8") {
+              document.querySelector('.go-back-button').click();
+            }
+          });
+        });
       </script>
 
       <% } else if (action == 'thanks') { %>
@@ -62,9 +73,10 @@
         }
       </style>
       <div class="title-box">
-        <h1>Thanks for sharing your comment!</h1>
-        <h4>Take the leaf and see what other people shared</h4>
-        <p>You will be redirected to the main page automatically</p>
+        <h1>Thank you for</h1>
+        <h1>sharing your comment!</h1>
+        <p>Take the leaf and see what other people shared</p>
+        <h4>You will be redirected to the main page automatically</h4>
       </div>
       <script>
         setTimeout(function() {
@@ -84,8 +96,17 @@
         <h1><%= title %></h1>
       </div>
       <div class="button-container">
-        <a href="/comment" class="button">Leave a comment</a>
+        <a href="/comment" class="button">Press Submit to leave a comment</a>
       </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          document.addEventListener("keydown", function(event) {
+            if (event.code === "Numpad2") {
+              window.location.href = "/comment";
+            }
+          });
+        });
+      </script>
   
       <% } %>
   </body>
