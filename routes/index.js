@@ -1,6 +1,17 @@
-var express = require('express');
+const express = require('express');
 var router = express.Router();
-var database = require('../database');
+const database = require('../database');
+const mqtt = require('mqtt');
+var counter = 0;
+
+const client = mqtt.connect('mqtt://ide-education:Sy0L85iwSSgc1P7E@ide-education.cloud.shiftr.io', {
+  clientid: 'digitree-main'
+});
+
+client.on('connect', function() {
+  console.log("Successfully connected to MQTT Server");
+});
+
 
 router.get("/", function(request, response, next){
   const query = `SELECT * FROM current_topic`;
@@ -59,5 +70,18 @@ router.post("/comment", function(request, response, next) {
   });
 });
 
+router.get('/send-mqtt', function(request, response, next) {
+  client.publish('Group-3/Data', counter.toString(), function(err) {
+    if (err) {
+      console.error('Error sending MQTT message:', err);
+      response.status(500).send('Failed to send MQTT message');
+    } else {
+      console.log('MQTT message sent:', counter);
+      response.status(200).send(`MQTT message sent: ${counter}`);
+    }
+  });
+
+  counter = (counter + 1) % 5;
+});
 
 module.exports = router;

@@ -27,6 +27,10 @@
             <div class="comment-textarea-container">
               <textarea name="comment" id="comment" class="comment-textarea" placeholder="Your comment..."></textarea>
               <div id="character-counter">0/500</div>
+              <div class="press-next">
+                <span>Press Next</span>
+                <div class="right-arrow">&#10132;</div>
+              </div>
             </div>
             <div class="comment-buttons">
               <a href="/" class="go-back-button">Go back</a>
@@ -74,14 +78,41 @@
         }
       </style>
       <div class="title-box">
-        <h2>Thank you for<br>sharing your comment!</h2>
-        <p>Take the leaf and see what other people shared</p>
+        <h2>Thank you for sharing your comment!</h2>  
+        <img src="../images/leaf.png" alt="Leaf image" style="width: 45px; height: 45px; margin-top: 30px; margin-bottom: -15px">
+        <p>Take the leaf</p>
+        <p class="p2">and see what other people shared</p>
         <h4> <br>You will be redirected to the main page automatically</h4>
       </div>
+      <div class="overlay">
+        <img src="../images/leaf_anim_2.gif" alt="Leaf animation" class="leaf-anim">
+      </div>
       <script>
+        fetch('/send-mqtt')
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .then(function(data) {
+          console.log(data);
+        })
+        .catch(function(error) {
+          console.error('There was a problem with the fetch operation:', error);
+        });
+        
         setTimeout(function() {
-            window.location.href = '/';
+          window.location.href = '/';
         }, 10000);
+        
+        document.addEventListener("DOMContentLoaded", function() {
+          document.addEventListener("keydown", function(event) {
+            if (event.code === "Numpad8") {
+              window.location.href = "..";
+            }
+          });
+        });
       </script>
 
       <% } else { %>
@@ -98,12 +129,9 @@
       <div class="title-box">
         <h1><%= title %></h1>
         <div class="press-enter">
-          <a>Press Enter to leave a comment</a>
+          <a>Press Next to leave a comment</a>
         </div>
       </div>
-      <!-- <div class="button-container">
-        <a href="/comment" class="button">Press Enter</a>
-      </div> -->
       <script>
         document.addEventListener("DOMContentLoaded", function() {
           document.addEventListener("keydown", function(event) {

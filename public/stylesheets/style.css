@@ -35,11 +35,12 @@ h1 {
 }
 
 h2 {
-  margin: 0;
-  font-size: 40px;
+  margin: 10px;
+  font-size: 25px;
   font-style: normal;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: normal;
+  line-height: 1.5;
 }
 
 h3 {
@@ -53,7 +54,7 @@ h3 {
 }
 
 h4 {
-  margin: 0;
+  margin: 30px;
   font-size: 15px;
   font-style: normal;
   font-family: Arial, Helvetica, sans-serif;
@@ -63,11 +64,20 @@ h4 {
 
 p {
   margin-bottom: 0;
+  font-size: 30px;
+  font-style: normal;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 0.8;
+}
+
+p.p2 {
+  margin-bottom: 0;
   font-size: 20px;
   font-style: normal;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  line-height: 1.5;
+  line-height: 0.8;
 }
 
 .press-enter {  padding-top: 10px;
@@ -157,6 +167,29 @@ a.button:hover {
   color: grey;
 }
 
+.comment-textarea-container {
+  position: relative;
+}
+
+.press-next {
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+}
+
+.press-next span {
+  margin-right: 5px;
+}
+
+.right-arrow {
+  font-size: 20px;
+}
 
 .comment-button-row {
   display: flex;
@@ -206,4 +239,23 @@ a.button:hover {
 .go-back-button:hover {
   background-color: #141414;
   color: white;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.leaf-anim {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 75vw;
+  height: 130vh;
+  z-index: 9999;
+  
 }
