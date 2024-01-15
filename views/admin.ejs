@@ -36,6 +36,29 @@
                 </div>
             </div>
 
+            <% } else if (action == 'edit_topic') { console.log(topic_id); %>
+                <div class="card">
+                    <div class="card-header">Edit topic</div>
+                    <div class="card-body">
+                        <form method="POST" action="/admin/edit_topic/">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label>Topic no.</label>
+                                        <input type="text" name="topic_id" id="topic_id" class="form-control" value='<%= topic_id%>' />
+                                        <label>New Text</label>
+                                        <input type="text" name="topic_text" id="topic_text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" name="submit_button" class="btn btn-primary" value="Confirm" />
+                            </div>
+                            <a href="/admin" class="btn btn-dark btn-sm float-start">Go back</a>
+                        </form>
+                    </div>
+                </div>
+
             <% } else if (action == 'mod_comments') { %>
             <div class="card">
                 <div class="card-header">
@@ -165,6 +188,7 @@
                                 <th>Topic no.</th>
                                 <th>Topic</th>
                                 <th>Select Topic</th>
+                                <th>Edit Topic</th>
                                 <th>Delete</th>
                             </tr>
                             <%
@@ -178,6 +202,10 @@
                                 <td>
                                     <a href="/admin/select/<%= data.topic_no%>"
                                         class="btn btn-success btn-sm">V</a>
+                                </td>
+                                <td>
+                                    <a href="/admin/edit_topic/<%= data.topic_no%>"
+                                        class="btn btn-info btn-sm">Edit</a>
                                 </td>
                                 <td>
                                     <a href="/admin/delete/topic/<%= data.topic_no%>"

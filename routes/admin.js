@@ -76,6 +76,29 @@ router.post("/add_topic", function(request, response, next) {
     });
 });
 
+router.get("/edit_topic/:topic_id", function(request, response, next){
+    var topic_no = request.params.topic_id;
+    console.log(topic_no)
+	response.render("admin", {title:'Edit Topic', action:'edit_topic', topic_id:topic_no});
+
+});
+
+router.post("/edit_topic/", function(request, response, next) {
+    var topic_no = request.body.topic_id;
+    var new_topic_text = request.body.topic_text;
+  
+    var query = `UPDATE topics SET topic_text = "${new_topic_text}" WHERE topic_no = "${topic_no}"`;
+  
+    database.query(query, function(error, data) {
+        if (error) {
+            throw error;
+        }
+        else {
+            response.redirect("../../admin");
+        }
+    });
+  });
+
 router.get("/mod_comments", function(request, response, next){
     var query = `SELECT * FROM comments_waiting ORDER BY topic_no DESC, comment_waiting_no`;
 
