@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 var database = require('../database');
 
-const TOPIC1 = "3";
-const TOPIC2 = "5";
-const TOPIC3 = "6";
-const TOPIC4 = "7";
+const TOPIC1 = "5";
+const TOPIC2 = "7";
+const TOPIC3 = "8";
+const TOPIC4 = "10";
 
 router.get("/", function(request, response, next){
 
