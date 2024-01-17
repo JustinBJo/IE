@@ -71,7 +71,7 @@ router.post("/comment", function(request, response, next) {
 });
 
 router.get('/send-mqtt', function(request, response, next) {
-  client.publish('Group-3/Data', counter.toString(), function(err) {
+  client.publish('MIE-DigiTree/Data', counter.toString(), function(err) {
     if (err) {
       console.error('Error sending MQTT message:', err);
       response.status(500).send('Failed to send MQTT message');
