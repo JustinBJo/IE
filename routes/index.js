@@ -81,7 +81,7 @@ router.get('/send-mqtt', function(request, response, next) {
     }
   });
 
-  counter = (counter + 1) % 10;
+  counter = (counter + 1) % 5;
 });
 
 module.exports = router;
